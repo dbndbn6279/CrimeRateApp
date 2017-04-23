@@ -13,9 +13,22 @@
         android:id="@+id/autoTextView"
         android:layout_width="280sp"
         android:layout_height="55sp"
+        android:layout_marginTop="15sp"
         android:hint="@string/city_name"
         android:maxLines="1" />
 
+    <TextView
+        android:id="@+id/info_text_view"
+        android:paddingLeft="75sp"
+        android:paddingTop="30sp"
+        android:text="Test text which will not display"
+        android:textColor="#155353"
+        android:textSize="18dp"
+        android:lineSpacingExtra="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="456dp" />
+
+    <!--
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,6 +46,6 @@
             android:layout_marginLeft="10sp"
             android:text="@string/clear_button"/>
     </LinearLayout>
-
+     -->
 
 </LinearLayout>

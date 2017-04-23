@@ -5,6 +5,8 @@ import android.content.res.AssetManager;
 import android.nfc.Tag;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
@@ -26,9 +28,10 @@ import java.util.HashMap;
 public class MainActivity extends AppCompatActivity {
     //For debuging:
     final private String TAG = "MainActivity: ";
-    static public HashMap<String, CityInfo> mCitiesInfo;
+    private HashMap<String, CityInfo> mCitiesInfo;
     //Member Vars:
     private AutoCompleteTextView mEditView;
+    private TextView mCityInfoView;
     private JsonHandler mJsHandler;
 
     private Button mSearchButton;
@@ -45,14 +48,41 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //Initialize:
         mEditView = (AutoCompleteTextView) findViewById(R.id.autoTextView);
+        mCityInfoView = (TextView) findViewById(R.id.info_text_view);
         mJsHandler = new JsonHandler(this);
         mCitiesInfo = mJsHandler.readAllCities();
-        mSearchButton = (Button) findViewById(R.id.search_btn);
-        mClearButton = (Button) findViewById(R.id.clear_btn);
         initAutoCompleteView();
 
-        final Intent intent = new Intent(this, DisplayCityInfo.class);
+        mCityInfoView.setText("");
+        mEditView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String cityName = mEditView.getText().toString();
+                if(mCitiesInfo.containsKey(cityName)) {
+                    CityInfo city = mCitiesInfo.get(cityName);
+                    mCityInfoView.setText("City Name: " + city.getName());
+                    mCityInfoView.append("\nNumber: " + city.getNumber());
+                    mCityInfoView.append("\nRate: " + city.getRate());
+                    mCityInfoView.append("\nIndex: " + city.getIndex());
+                    mCityInfoView.append("\nCity Ranking: " + city.getCityRank());
+                    mCityInfoView.append("\nResident Ranking: " + city.getResRank());
+                }else{
+                    mCityInfoView.setText("");
+                }
+            }
+        });
+        /*
+        final Intent intent = new Intent(this, DisplayCityInfo.class);
         //SetOnClicker
         mSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 mEditView.setText("");
             }
         });
+        */
     }
 
     private void initAutoCompleteView(){
