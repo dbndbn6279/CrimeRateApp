@@ -1,8 +1,11 @@
 package edu.ucsb.boning.jsontest;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.nfc.Tag;
+import android.opengl.GLSurfaceView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -14,6 +17,8 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -81,6 +86,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+                                                                                                                                                                                                ImageButton crossButton = (ImageButton) findViewById(R.id.cross_button);
+                                                                                                                                                                                                ImageButton crossButton = (ImageButton) findViewById(R.id.cross_button);
+        crossButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mEditView.setText("");
+            }
+        });
         /*
         final Intent intent = new Intent(this, DisplayCityInfo.class);
         //SetOnClicker
@@ -117,3 +131,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
+

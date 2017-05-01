@@ -8,25 +8,43 @@
     android:orientation="vertical"
     tools:context="edu.ucsb.boning.jsontest.MainActivity"
     android:weightSum="1">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center">
+
 
     <AutoCompleteTextView
-        android:id="@+id/autoTextView"
-        android:layout_width="280sp"
-        android:layout_height="55sp"
-        android:layout_marginTop="15sp"
-        android:hint="@string/city_name"
-        android:maxLines="1" />
+    android:id="@+id/autoTextView"
+    android:layout_width="280dp"
+    android:layout_height="55dp"
+    android:layout_marginTop="15dp"
+    android:hint="@string/city_name"
+    android:maxLines="1" />
+
+    <ImageButton
+        android:id="@+id/cross_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:background="@android:color/transparent"
+        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+</LinearLayout>
+
 
     <TextView
         android:id="@+id/info_text_view"
-        android:paddingLeft="75sp"
-        android:paddingTop="30sp"
+        android:layout_width="match_parent"
+        android:layout_height="456dp"
+        android:lineSpacingExtra="10dp"
+        android:paddingLeft="75dp"
+        android:paddingTop="30dp"
         android:text="Test text which will not display"
         android:textColor="#155353"
-        android:textSize="18dp"
-        android:lineSpacingExtra="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="456dp" />
+        android:textSize="18dp" />
 
     <!--
     <LinearLayout
