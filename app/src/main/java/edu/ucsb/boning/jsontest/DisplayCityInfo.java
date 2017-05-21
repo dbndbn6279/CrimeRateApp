@@ -13,7 +13,6 @@ public class DisplayCityInfo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_city_info);
         /*
         //Init:
         mCityInfoView = (TextView) findViewById(R.id.city_info_view);

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "831944747462",
+    "firebase_url": "https://my-awesome-project-cd2c2.firebaseio.com",
+    "project_id": "my-awesome-project-cd2c2",
+    "storage_bucket": "my-awesome-project-cd2c2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:831944747462:android:05d14a7c27a7aa5a",
+        "android_client_info": {
+          "package_name": "edu.ucsb.boning.jsontest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "831944747462-ovtkfsbep8ij3c6jro533mk34c7ospfq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgimEd3tPxSqUvOFIflMaab4KOyc3fAeQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

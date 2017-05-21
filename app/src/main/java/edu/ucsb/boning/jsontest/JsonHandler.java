@@ -27,26 +27,9 @@ public class JsonHandler {
     JsonReader reader;
 
     public JsonHandler(Context context){
-        path = new String("crime.json");
+        path = new String("crimeNew.json");
         this.context = context;
 
-    }
-
-    //Open file and read Contents
-    public void readJsonString(){
-        String json = null;
-        try {
-            InputStream inputStream = context.getAssets().open(path);
-            int size = inputStream.available();
-            byte[] buffer = new byte[size];
-            inputStream.read(buffer);
-            inputStream.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex){
-            ex.printStackTrace();
-            return;
-        }
-        jsonInfo = json;
     }
 
     //Use a JsonReader to parse the info:
@@ -58,13 +41,8 @@ public class JsonHandler {
             //Try to read all cities:
             reader.beginObject();
             while (reader.hasNext()){
-                Log.d(LOAD_CITIES_TAG, "Begin reading dict");
                 String cityName = reader.nextName();
                 if(cityName.length() != 0) {
-                    //For Debuging
-                    /*
-                    Log.d(LOAD_CITIES_TAG, cityName);
-                    Log.d(LOAD_CITIES_TAG, "Number: " + readCityInfo(reader).getNumber());*/
                     cityLists.put(cityName, readCityInfo(cityName, reader));
                 }
                 else{
@@ -89,16 +67,14 @@ public class JsonHandler {
         reader.beginObject();
         while (reader.hasNext()){
             String termName = reader.nextName();
-            if(termName.equals("Number")){
+            if(termName.equals("Num")){
                 city.setNumber(reader.nextInt());
             }else if(termName.equals("Rate")){
                 city.setRate(reader.nextInt());
             }else if(termName.equals("Index")){
                 city.setIndex(reader.nextInt());
-            }else if(termName.equals("City Ranking")){
-                city.setCityRank(reader.nextInt());
-            }else if(termName.equals("Resident Ranking")){
-                city.setResRank(reader.nextInt());
+            }else if(termName.equals("Ranking")){
+                city.setRanking(reader.nextDouble());
             }else{
                 reader.skipValue();
             }

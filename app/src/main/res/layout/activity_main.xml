@@ -1,69 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:id="@+id/layoutRoot"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
     tools:context="edu.ucsb.boning.jsontest.MainActivity"
     android:weightSum="1">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:gravity="center">
 
-
-    <AutoCompleteTextView
-    android:id="@+id/autoTextView"
-    android:layout_width="280dp"
-    android:layout_height="55dp"
-    android:layout_marginTop="15dp"
-    android:hint="@string/city_name"
-    android:maxLines="1" />
-
-    <ImageButton
-        android:id="@+id/cross_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:background="@android:color/transparent"
-        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
-
-</LinearLayout>
-
-
-    <TextView
-        android:id="@+id/info_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="456dp"
-        android:lineSpacingExtra="10dp"
-        android:paddingLeft="75dp"
-        android:paddingTop="30dp"
-        android:text="Test text which will not display"
-        android:textColor="#155353"
-        android:textSize="18dp" />
-
-    <!--
     <LinearLayout
+        android:id="@+id/layoutHead"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center">
-        <Button
-            android:id="@+id/search_btn"
-            android:layout_width="wrap_content"
+        android:background="@color/headBackground"
+        android:orientation="vertical"
+        android:padding="30sp">
+
+        <TextView
+            android:id="@+id/searchHint"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10sp"
-            android:text="@string/search_button"/>
-        <Button
-            android:id="@+id/clear_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10sp"
-            android:text="@string/clear_button"/>
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:text="@string/title"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"/>
+
+        <FrameLayout
+            android:layout_width="280sp"
+            android:layout_height="55sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="25sp"
+            android:layout_marginTop="25sp"
+            android:background="@null">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoTextView"
+                android:layout_width="280sp"
+                android:layout_height="35sp"
+                android:layout_gravity="center"
+                android:background="@android:color/white"
+                android:hint="@string/city_name"
+                android:maxLines="1"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:shadowColor="@color/colorPrimaryDark"/>
+
+            <ImageButton
+                android:id="@+id/clearButton"
+                android:layout_width="27sp"
+                android:layout_height="27sp"
+                android:layout_gravity="center_vertical|right"
+                android:layout_margin="0dp"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:padding="5sp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/delete"/>
+        </FrameLayout>
     </LinearLayout>
-     -->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/urban"
+            android:layout_gravity="bottom"
+            android:adjustViewBounds="true"
+            android:alpha="0.15"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@null">
+            <ImageView
+                android:id="@+id/dashboard"
+                android:layout_gravity="center"
+                android:layout_marginTop="40sp"
+                android:layout_marginBottom="10sp"
+                android:layout_width="170sp"
+                android:layout_height="170sp"/>
+            <LinearLayout
+                android:layout_marginTop="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|center_vertical"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/infoDispFrame1"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:padding="5sp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/danger"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/dangerousLevel"
+                        android:textSize="@dimen/InfoTextSize"/>
+
+                    <TextView
+                        android:id="@+id/crimeRateValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Testing"
+                        android:textSize="@dimen/InfoTextSize"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="@color/safeRefValue"
+                        android:text=" / 100"
+                        android:textSize="@dimen/InfoTextSize"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/infoDispFrame2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:padding="5sp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/safe"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/randkingInfo"
+                        android:textSize="@dimen/InfoTextSize"/>
+
+                    <TextView
+                        android:id="@+id/cityRankValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Testing"
+                        android:textSize="@dimen/InfoTextSize"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="@color/safeRefValue"
+                        android:text=" / 100%"
+                        android:textSize="@dimen/InfoTextSize"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+
 
 </LinearLayout>

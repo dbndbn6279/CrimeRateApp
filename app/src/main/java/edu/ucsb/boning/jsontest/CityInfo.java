@@ -9,9 +9,7 @@ public class CityInfo {
     private int number;
     private int rate;
     private int index;
-    private int cityRank;
-    private int resRank;
-
+    private double ranking;
     //Getters and Setters:
     public String getName() {
         return name;
@@ -45,19 +43,11 @@ public class CityInfo {
         this.index = index;
     }
 
-    public int getCityRank() {
-        return cityRank;
+    public double getRanking() {
+        return ranking;
     }
 
-    public void setCityRank(int cityRank) {
-        this.cityRank = cityRank;
-    }
-
-    public int getResRank() {
-        return resRank;
-    }
-
-    public void setResRank(int resRank) {
-        this.resRank = resRank;
+    public void setRanking(double ranking) {
+        this.ranking = ranking;
     }
 }

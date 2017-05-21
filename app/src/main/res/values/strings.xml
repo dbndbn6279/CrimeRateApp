@@ -1,7 +1,10 @@
 <resources>
-    <string name="app_name">JsonTest</string>
+    <string name="app_name">City</string>
     <string name="city_name">Please input the city name here ...</string>
     <string name="search_button">Search</string>
     <string name="clear_button">Clear</string>
     <string name="no_city_info">There is no crime data about this city.</string>
+    <string name="dangerousLevel">"Dangerous Level\:  "</string>
+    <string name="randkingInfo">"Safer Than\:  "</string>
+    <string name="title">Are you safe in "</string>
 </resources>
